@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -8,16 +10,10 @@ const inter = Inter({
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'Aion AI Agency - The AI Agency of the Future',
-  description: 'Autonomous AI executing complex business operations. Strategy, implementation, and automation that transforms how businesses operate.',
-  keywords: ['AI agency', 'AI automation', 'business intelligence', 'enterprise AI', 'autonomous AI', 'AI strategy'],
+  title: 'Aion Research - We Build Autonomous Intelligence That Builds Your Business',
+  description: 'Renaissance Workshop model — where AI agents, strategy, and craft converge. Enterprise-grade AI platforms, strategic intelligence, and autonomous business operations.',
+  keywords: ['AI platform', 'Agent OS', 'enterprise AI', 'autonomous intelligence', 'AI strategy', 'business automation'],
   authors: [{ name: 'Aion Research' }],
   creator: 'Aion Research',
   publisher: 'Aion Research',
@@ -26,22 +22,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://aion.agency',
-    title: 'Aion AI Agency - The AI Agency of the Future',
-    description: 'Autonomous AI executing complex business operations. Transform your business with intelligent automation.',
-    siteName: 'Aion AI Agency',
+    title: 'Aion Research - Autonomous Intelligence Platform',
+    description: 'Enterprise-grade AI platforms that transform business operations. Agent OS, strategic intelligence, and autonomous execution.',
+    siteName: 'Aion Research',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Aion AI Agency',
+        alt: 'Aion Research',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aion AI Agency - The AI Agency of the Future',
-    description: 'Autonomous AI executing complex business operations.',
+    title: 'Aion Research - Autonomous Intelligence Platform',
+    description: 'Enterprise-grade AI platforms that transform business operations.',
     images: ['/og-image.png'],
     creator: '@aionresearch',
   },
@@ -68,9 +64,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans">
-        {children}
+    <html lang="en" className={inter.variable}>
+      <body className="font-sans bg-void-black text-white antialiased">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
